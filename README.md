@@ -4,8 +4,6 @@ Built by [Andy Toizer](https://www.linkedin.com/in/andy-toizer/) — I'm the hea
 
 TLDR: Session History gives anyone using coding agents a simple way to find old Claude Code and Codex work. It turns your local agent conversations into a searchable project library, so you can answer questions like "Where was that outbound list?", "What did we decide in that pricing project?", or "Which session made this deck?"
 
-It is for operators, founders, GTM teams, PMs, analysts, and non-engineers who use coding agents to make lists, reports, campaigns, landing pages, research docs, dashboards, decks, and internal tools.
-
 ## What It Does
 
 - Finds your local Claude Code and Codex transcripts
