@@ -1,0 +1,4 @@
+interface:
+  display_name: "Session History"
+  short_description: "Browse Claude and Codex session transcripts"
+  default_prompt: "Use $session-history to index and browse my Claude Code and Codex conversation history."
