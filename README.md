@@ -2,9 +2,9 @@ Built by [Andy Toizer](https://www.linkedin.com/in/andy-toizer/) — I'm the hea
 
 # Session History
 
-TLDR: Session History gives GTM engineers a simple way to find old Claude Code and Codex work. It turns your local agent conversations into a searchable project library, so you can answer questions like "Where was that outbound list?", "What did we decide in that pricing project?", or "Which session made this deck?"
+TLDR: Session History gives anyone using coding agents a simple way to find old Claude Code and Codex work. It turns your local agent conversations into a searchable project library, so you can answer questions like "Where was that outbound list?", "What did we decide in that pricing project?", or "Which session made this deck?"
 
-It is for GTM-focused builders who use coding agents to make lists, reports, campaigns, landing pages, research docs, dashboards, decks, and internal tools.
+It is for operators, founders, GTM teams, PMs, analysts, and non-engineers who use coding agents to make lists, reports, campaigns, landing pages, research docs, dashboards, decks, and internal tools.
 
 ## What It Does
 
@@ -18,7 +18,7 @@ It is for GTM-focused builders who use coding agents to make lists, reports, cam
 
 ## Why You Would Use It
 
-GTM agent work gets scattered fast. One week you might use agents for account research, a LinkedIn campaign, a lifecycle email, a HubSpot cleanup, and a customer deck. A month later, the useful context is buried in old chats.
+Agent work gets scattered fast. One week you might use agents for account research, a LinkedIn campaign, a lifecycle email, a HubSpot cleanup, and a customer deck. A month later, the useful context is buried in old chats.
 
 Session History gives you a lightweight memory layer:
 
