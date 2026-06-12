@@ -7,7 +7,8 @@ TLDR: Session History gives anyone using coding agents a simple way to find old 
 ## What It Does
 
 - Finds your local Claude Code and Codex transcripts
-- Groups conversations into projects and threads
+- Infers real workstreams instead of blindly using the folder where the agent was launched
+- Groups conversations into projects, threads, and cross-workstream artifact hubs
 - Creates readable Markdown summaries
 - Copies the raw transcript next to each summary for backup
 - Highlights useful output files like CSVs, decks, PDFs, docs, reports, HTML files, and images
@@ -44,6 +45,12 @@ The generated library lives at:
 ~/.session-history/session-history.md
 ```
 
+## How It Thinks About Projects
+
+Session History does not assume the transcript working directory is the project. Agent sessions are often launched from broad folders like `Documents`, `Projects`, or `New project`, so the script looks at titles, prompts, project markers, file paths, and session-relay context to infer the actual workstream.
+
+That means broad buckets like "content" or "CRM" can become more useful lanes such as `Newsletter Draft / Copy`, `LinkedIn Post Review`, `CRM Dedupe Dry Runs`, or `Outbound Campaign Research`.
+
 ## Quick Start
 
 ### 1. Clone The Repo
@@ -79,6 +86,12 @@ Open one project by row number:
 
 ```bash
 python3 scripts/session_history.py project 3
+```
+
+Open one thread inside a project:
+
+```bash
+python3 scripts/session_history.py thread 3 2
 ```
 
 Search old sessions:
