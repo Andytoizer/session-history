@@ -1207,12 +1207,14 @@ def write_project_readmes(output: Path, sessions: list[Session]) -> None:
         output_files = collect_project_outputs(project_sessions)
         output_rows = render_output_files_table(output_files, project_dir, start_index=next_index)
         next_index += len(output_files)
-        rows = ["| # | Date | Source | Conversation | Summary |", "| --- | --- | --- | --- | --- |"]
+        rows = ["| # | Date | Source | Conversation | Summary | Session File |", "| --- | --- | --- | --- | --- | --- |"]
         for index, session in enumerate(project_sessions, start=next_index):
+            session_path = relpath(session.session_md, project_dir)
             rows.append(
                 f"| {index} | {md_cell(display_date(session.updated_at))} | {md_cell(session.source)} | "
-                f"[{md_cell(session.title)}]({relpath(session.session_md, project_dir)}) | "
-                f"{md_cell(clip(one_line(make_summary(session)), 180))} |"
+                f"[{md_cell(session.title)}]({session_path}) | "
+                f"{md_cell(clip(one_line(make_summary(session)), 180))} | "
+                f"`{md_cell(session_path)}` |"
             )
         content = "\n".join(
             [
@@ -1248,14 +1250,16 @@ def write_thread_readmes(project_dir: Path, sessions: list[Session]) -> None:
         output_files = collect_project_outputs(thread_sessions)
         output_rows = render_output_files_table(output_files, thread_dir, start_index=1)
         conversation_start = 1 + len(output_files)
-        rows = ["| # | Date | Source | Conversation | Summary |", "| --- | --- | --- | --- | --- |"]
-        rows.append(f"| 0 | {md_cell(display_date(first.updated_at))} | back | [Back to {md_cell(first.project_name)}](../../README.md) | Parent project |")
+        rows = ["| # | Date | Source | Conversation | Summary | Session File |", "| --- | --- | --- | --- | --- | --- |"]
+        rows.append(f"| 0 | {md_cell(display_date(first.updated_at))} | back | [Back to {md_cell(first.project_name)}](../../README.md) | Parent project | - |")
         for index, session in enumerate(thread_sessions, start=conversation_start):
             copied_session = thread_dir / "sessions" / Path(session.session_md).name
+            session_path = relpath(copied_session, thread_dir)
             rows.append(
                 f"| {index} | {md_cell(display_date(session.updated_at))} | {md_cell(session.source)} | "
-                f"[{md_cell(session.title)}]({relpath(copied_session, thread_dir)}) | "
-                f"{md_cell(clip(one_line(make_summary(session)), 180))} |"
+                f"[{md_cell(session.title)}]({session_path}) | "
+                f"{md_cell(clip(one_line(make_summary(session)), 180))} | "
+                f"`{md_cell(session_path)}` |"
             )
         content = "\n".join(
             [
